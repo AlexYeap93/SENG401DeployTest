@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "react-resizable": "^3.0.5"
+  },
+  "devDependencies": {
+    "@types/react-resizable": "^3.0.8"
+  },
+  "name": "seng401-project",
+  "version": "1.0.0",
+  "description": "1. Navigate to the frontend directory:\r     ```bash\r     cd frontend\r     ```\r 2. Install dependencies (only needed the first time):\r    ```bash\r    npm install\r    npm install recharts\r    npm install react-resizable\r    ```\r 3. Start the application:\r    ```bash\r    npm run dev\r    ```\r ## **Backend Setup**\r 1. Navigate to the backend directory:\r    ```bash\r    cd backend\r    ```\r 2. Ensure all dependencies are installed:\r    ```bash\r    pip install -r requirements.txt # OR \r    python -m pip install -r requirements.txt\r    ```\r 3. Run the backend server:\r    ```bash\r    python app.py\r    ```",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexYeap93/SENG401-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexYeap93/SENG401-Project/issues"
+  },
+  "homepage": "https://github.com/AlexYeap93/SENG401-Project#readme"
+}
