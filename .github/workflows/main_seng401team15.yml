@@ -21,25 +21,25 @@ jobs:
           node-version: '20.x'
 
       - name: Install dependencies and build frontend
-        working-directory: ./frontend  # Set working directory to frontend
+        working-directory: ./frontend  # Change working directory to frontend
         run: |
           npm install
           npm install --save-dev @types/react-resizable
           npm install --save-dev @types/recharts
-          npm run build --if-present  # Ensure the build directory is created
+          npm run build --if-present  # Build the frontend
           npm run test --if-present
 
       - name: Prepare ZIP for deployment
         run: |
           mkdir deploy
-          cp -r frontend/build deploy/  # Copy build directory
-          cp -r backend deploy/         # Copy backend directory
+          cp -r frontend/build deploy/  # This should now work as build has run
+          cp -r backend deploy/
           cp frontend/package.json deploy/
           cp frontend/package-lock.json deploy/
 
       - name: Zip artifact for deployment
         run: |
-          zip -r release.zip deploy/
+          zip -r release.zip deploy/  # Zip the contents of the deploy directory
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -71,3 +71,4 @@ jobs:
           slot-name: 'Production'
           package: ./deploy  # Point to the deploy directory
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9504C250BECC4EACA132DAF0B5DF63B2 }}
+
