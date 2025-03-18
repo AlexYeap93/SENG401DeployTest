@@ -26,17 +26,20 @@ jobs:
           npm install
           npm install --save-dev @types/react-resizable
           npm install --save-dev @types/recharts
-          npm run build --if-present
+          npm run build --if-present  # Ensure the build directory is created
           npm run test --if-present
 
-      - name: Zip artifact for deployment
+      - name: Prepare ZIP for deployment
         run: |
           mkdir deploy
           cp -r frontend/build deploy/  # Copy build directory
           cp -r backend deploy/         # Copy backend directory
           cp frontend/package.json deploy/
           cp frontend/package-lock.json deploy/
-          zip -r release.zip deploy/    # Zip the deploy directory
+
+      - name: Zip artifact for deployment
+        run: |
+          zip -r release.zip deploy/
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
